@@ -16,7 +16,7 @@ public class SelectionSort {
      * (i.e start of sorted portion)
      * @param array array containing the elements to be sorted
      */
-    public static void selectionSort(int[] array){
+    private static void selectionSort(int[] array){
         for (int lastUnsorted = array.length - 1; lastUnsorted > 0; lastUnsorted--) {
             int largest = 0;
             for (int i = 1; i <= lastUnsorted; i++) {
