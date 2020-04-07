@@ -14,9 +14,9 @@ public class BubbleSort {
      * O(n2) n square
      * This algorithm is one implementation of bubble sort
      * Bubbling te larger element to end of the index
-     * @param array
+     * @param array array containing the elements to be sorted
      */
-    public static void bubbleSort(int[] array){
+    private static void bubbleSort(int[] array){
         for (int lastUnsorted = array.length-1; lastUnsorted > 0 ; lastUnsorted--) {
             for (int i = 0; i < lastUnsorted; i++) {
                 if(array[i] > array[i+1]){
@@ -28,7 +28,7 @@ public class BubbleSort {
 
     }
 
-    public static void swapElement(int[] array, int index1, int index2){
+    private static void swapElement(int[] array, int index1, int index2){
         if(index1 == index2)
             return;
         int temp = array[index1];
