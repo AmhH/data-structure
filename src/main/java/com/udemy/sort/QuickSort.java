@@ -1,9 +1,14 @@
 package com.udemy.sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
 
     public static void main(String[] args) {
         int[] intArray = {20, 35, -15, 7, 55, 1, -22};
+        quickSort(intArray, 0, intArray.length);
+
+        System.out.println(Arrays.toString(intArray));
 
     }
 
@@ -27,7 +32,10 @@ public class QuickSort {
 
     /**
      * Uses the first element as a pivot
-     *
+     * @param array array to be sorted
+     * @param start start of partition and the pivot
+     * @param end length =  end + start, end is last index + 1
+     * @return
      */
     private static int partition(int[] array, int start, int end) {
         int pivot = array[start];
@@ -36,8 +44,18 @@ public class QuickSort {
         int j = end;
 
         while (i < j){
+            //Empty loop body
+            while(i < j && array[--j] >= pivot);
 
+            if(i < j)
+                array[i] = array[j];
+
+            while (i < j && array[++i] <= pivot);
+
+            if (i < j)
+                array[j] = array[i];
         }
-        return 0;
+        array[j] = pivot;
+        return j;
     }
 }
