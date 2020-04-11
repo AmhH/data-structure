@@ -1,5 +1,8 @@
 package com.udemy.list;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class MyLinkedList {
 
     private Node head;
@@ -31,6 +34,11 @@ public class MyLinkedList {
         return head == null;
     }
 
+    public static void main(String[] args) {
+        LinkedList<String> list = new LinkedList<>();
+        list.addFirst("");
+        Iterator<String> iterator = list.iterator();
+    }
 
     class Node{
         String value;
