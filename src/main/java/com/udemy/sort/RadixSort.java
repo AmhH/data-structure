@@ -9,6 +9,7 @@ public class RadixSort {
         int[] intArray = new int[]{4725, 4586, 1330, 8792, 1594, 5729};
         radixSort(intArray, 10, 4);
         System.out.println(Arrays.toString(intArray));
+        Arrays.parallelSort(intArray);
     }
 
     /**
