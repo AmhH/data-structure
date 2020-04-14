@@ -1,8 +1,5 @@
 package com.udemy.trees;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 public class BinaryTree {
 
     public static void main(String[] args) {
