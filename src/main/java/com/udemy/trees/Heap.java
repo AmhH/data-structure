@@ -1,6 +1,5 @@
 package com.udemy.trees;
 
-import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class Heap {
@@ -53,6 +52,21 @@ public class Heap {
         return deletedValue;
     }
 
+    /**
+     * For max heap the root is the largest elemnt
+     * Swap root with last element in the array
+     * heapify the tree exclude the ;ast element. after heapify the second largest element will be at the root.
+     * rinse and repeat
+     */
+    public void sort(){
+        int lastHeapIndex = size -1;
+        for (int i = 0; i < lastHeapIndex; i++) {
+            int temp = heap[0];
+            heap[0] = heap[lastHeapIndex - i];
+            heap[lastHeapIndex - i] = temp;
+            fixHeapBelow(0, lastHeapIndex - i -1);
+        }
+    }
 
     public int peek(){
         if(isEmpty())
@@ -74,25 +88,31 @@ public class Heap {
 
     private void fixHeapBelow(int index, int lastHeapIndex){
         int childToSwap;
-        while(index <= lastHeapIndex){
+
+        while (index <= lastHeapIndex) {
             int leftChild = getChild(index, true);
             int rightChild = getChild(index, false);
-            if(leftChild <= lastHeapIndex){
-                if(rightChild > lastHeapIndex){
+            if (leftChild <= lastHeapIndex) {
+                if (rightChild > lastHeapIndex) {
                     childToSwap = leftChild;
-                }else{
+                }
+                else {
                     childToSwap = (heap[leftChild] > heap[rightChild] ? leftChild : rightChild);
                 }
 
-                if(heap[index] < heap[childToSwap]){
-                    int temp = heap[index];
+                if (heap[index] < heap[childToSwap]) {
+                    int tmp = heap[index];
                     heap[index] = heap[childToSwap];
-                    heap[childToSwap] = temp;
-                }else {
+                    heap[childToSwap] = tmp;
+                }
+                else {
                     break;
                 }
 
                 index = childToSwap;
+            }
+            else {
+                break;
             }
         }
     }
@@ -132,10 +152,13 @@ public class Heap {
         heap.insert(52);
         heap.insert(67);
 
-        heap.printHeap();
+        /*heap.printHeap();
 
         heap.delete(0);
 
+        heap.printHeap();*/
+
+        heap.sort();
         heap.printHeap();
 
         System.out.println(heap.peek());
